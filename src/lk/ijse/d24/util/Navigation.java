@@ -19,7 +19,7 @@ public class Navigation {
         switch (route) {
             case LOGIN:
                 window.setTitle("Login Form");
-                setUi("loginForm.fxml");
+                setUi("MainLoginForm.fxml");
                 break;
             case DASHBOAD:
                 window.setTitle("Dashboad Form");
