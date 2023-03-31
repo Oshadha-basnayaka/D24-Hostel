@@ -25,7 +25,7 @@ public class AppInitializer extends Application {
 //        primaryStage.initStyle(StageStyle.UNDECORATED);
 //        primaryStage.show();
 
-        URL resource = this.getClass().getResource("/lk/ijse/d24/view/loginForm.fxml");
+        URL resource = this.getClass().getResource("/lk/ijse/d24/view/MainLoginForm.fxml");
         Parent window = FXMLLoader.load(resource);
         Scene scene = new Scene(window);
         primaryStage.setScene(scene);
