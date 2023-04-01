@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.d24.controller.MainLoginFormController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/login.jpg" />
+            <Image url="@assets/login.jpg" />
          </image>
       </ImageView>
       <JFXButton layoutX="398.0" layoutY="845.0" onAction="#onActionBtnLogin" prefHeight="44.0" prefWidth="249.0">
@@ -20,7 +19,13 @@
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtUserName" layoutX="523.0" layoutY="642.0" prefHeight="38.0" prefWidth="239.0" />
-      <JFXTextField fx:id="txtPWord" layoutX="528.0" layoutY="742.0" prefHeight="38.0" prefWidth="239.0" />
+      <JFXTextField fx:id="txtUserName" layoutX="523.0" layoutY="636.0" prefHeight="38.0" prefWidth="239.0">
+         <font>
+            <Font size="24.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtPWord" layoutX="528.0" layoutY="732.0" prefHeight="38.0" prefWidth="239.0">
+         <font>
+            <Font size="24.0" />
+         </font></JFXTextField>
    </children>
 </AnchorPane>

@@ -4,6 +4,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lk.ijse.d24.util.SessionFactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,5 +39,11 @@ public class AppInitializer extends Application {
         primaryStage.setFullScreenExitHint("");
         primaryStage.show();
 
+
+        Session Session = SessionFactoryConfiguration.getInstance().getSession();
+
+
     }
+
+
 }

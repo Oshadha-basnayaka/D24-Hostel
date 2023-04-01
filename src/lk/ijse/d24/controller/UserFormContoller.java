@@ -26,4 +26,8 @@ public class UserFormContoller {
     public void onActionBtnUser(ActionEvent actionEvent) throws IOException {
         Navigation.navigate(Routes.USER, pane);
     }
+
+    public void onActionBtnSignOut(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.LOGIN, pane);
+    }
 }

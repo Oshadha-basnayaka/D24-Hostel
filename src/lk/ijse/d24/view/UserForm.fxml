@@ -1,38 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.d24.controller.UserFormContoller">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/user.jpg" />
+            <Image url="@assets/user.jpg" />
          </image>
       </ImageView>
-      <JFXButton layoutX="960.0" layoutY="56.0" onAction="#onActionBtnReservation" prefHeight="61.0" prefWidth="205.0">
+      <JFXButton layoutX="770.0" layoutY="28.0" onAction="#onActionBtnReservation" prefHeight="61.0" prefWidth="205.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1218.0" layoutY="48.0" onAction="#onActionBtnStudent" prefHeight="61.0" prefWidth="178.0">
+      <JFXButton layoutX="1034.0" layoutY="52.0" onAction="#onActionBtnStudent" prefHeight="61.0" prefWidth="178.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1497.0" layoutY="48.0" onAction="#onActionBtnRoom" prefHeight="61.0" prefWidth="162.0" text="Button">
+      <JFXButton layoutX="1297.0" layoutY="44.0" onAction="#onActionBtnRoom" prefHeight="61.0" prefWidth="180.0" text="Button">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1715.0" layoutY="48.0" onAction="#onActionBtnUser" prefHeight="61.0" prefWidth="135.0">
+      <JFXButton layoutX="1528.0" layoutY="43.0" onAction="#onActionBtnUser" prefHeight="61.0" prefWidth="145.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
+      <JFXButton layoutX="1709.0" layoutY="22.0" onAction="#onActionBtnSignOut" prefHeight="69.0" prefWidth="185.0" text="Butt">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblUser" layoutX="510.0" layoutY="710.0" prefHeight="300.0" prefWidth="1000.0">
+         <columns>
+            <TableColumn prefWidth="166.0" text="ID" />
+            <TableColumn prefWidth="166.0" text="NAME" />
+            <TableColumn prefWidth="166.0" text="CONTACT" />
+            <TableColumn prefWidth="170.0" text="ADDRESS" />
+            <TableColumn prefWidth="166.0" text="DOB" />
+            <TableColumn prefWidth="166.0" text="GENDER" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
