@@ -1,19 +1,17 @@
 package lk.ijse.d24.controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
 
 import java.io.IOException;
 
-public class DashboadFormController {
-
-
+public class UserFormContoller {
     public AnchorPane pane;
 
     public void onActionBtnReservation(ActionEvent actionEvent) throws IOException {
+
         Navigation.navigate(Routes.RESERVATION, pane);
     }
 

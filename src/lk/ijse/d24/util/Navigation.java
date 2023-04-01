@@ -37,6 +37,10 @@ public class Navigation {
                 window.setTitle("Reservation Form");
                 setUi("ReservationForm.fxml");
                 break;
+            case USER:
+                window.setTitle("User Form");
+                setUi("UserForm.fxml");
+                break;
             default:
 
 

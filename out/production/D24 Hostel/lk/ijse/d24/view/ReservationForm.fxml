@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.d24.controller.ReservationFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.d24.controller.ReservationFormController">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/reservation.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="955.0" layoutY="57.0" onAction="#onActionBtnReservation" prefHeight="58.0" prefWidth="214.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1221.0" layoutY="46.0" onAction="#onActionBtnStudent" prefHeight="69.0" prefWidth="195.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1499.0" layoutY="55.0" onAction="#onActionBtnRoom" prefHeight="69.0" prefWidth="155.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1716.0" layoutY="55.0" onAction="#onActionBtnUser" prefHeight="69.0" prefWidth="147.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXButton>
+   </children>
 </AnchorPane>

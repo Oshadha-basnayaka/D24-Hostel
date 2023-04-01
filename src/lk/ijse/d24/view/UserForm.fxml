@@ -6,29 +6,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.d24.controller.DashboadFormController">
+
+<AnchorPane fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.d24.controller.UserFormContoller">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/dashboad.jpg" />
+            <Image url="@../assets/user.jpg" />
          </image>
       </ImageView>
-      <JFXButton layoutX="552.0" layoutY="898.0" onAction="#onActionBtnReservation" prefHeight="61.0" prefWidth="226.0">
+      <JFXButton layoutX="960.0" layoutY="56.0" onAction="#onActionBtnReservation" prefHeight="61.0" prefWidth="205.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="814.0" layoutY="892.0" onAction="#onActionBtnStudent" prefHeight="61.0" prefWidth="226.0">
+      <JFXButton layoutX="1218.0" layoutY="48.0" onAction="#onActionBtnStudent" prefHeight="61.0" prefWidth="178.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1074.0" layoutY="892.0" onAction="#onActionBtnRoom" prefHeight="61.0" prefWidth="201.0">
+      <JFXButton layoutX="1497.0" layoutY="48.0" onAction="#onActionBtnRoom" prefHeight="61.0" prefWidth="162.0" text="Button">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1306.0" layoutY="894.0" onAction="#onActionBtnUser" prefHeight="61.0" prefWidth="201.0">
+      <JFXButton layoutX="1715.0" layoutY="48.0" onAction="#onActionBtnUser" prefHeight="61.0" prefWidth="135.0">
          <font>
             <Font size="1.0" />
          </font>
