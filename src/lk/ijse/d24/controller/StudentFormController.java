@@ -44,6 +44,15 @@ public class StudentFormController {
     public void onActionRadioBtnFemale(ActionEvent actionEvent) {
     }
 
-    public void onActionBtnAdd(ActionEvent actionEvent) {
+    public void onActionBtnStudentAdd(ActionEvent actionEvent) {
+    }
+
+    public void onActionBtnStudentSearch(ActionEvent actionEvent) {
+    }
+
+    public void onActionBtnStudentUpdate(ActionEvent actionEvent) {
+    }
+
+    public void onActionBtnStudentDelete(ActionEvent actionEvent) {
     }
 }
