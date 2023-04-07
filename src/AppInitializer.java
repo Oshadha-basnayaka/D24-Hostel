@@ -40,7 +40,7 @@ public class AppInitializer extends Application {
         primaryStage.show();
 
 
-        Session Session = SessionFactoryConfiguration.getInstance().getSession();
+//        Session Session = SessionFactoryConfiguration.getInstance().getSession();
 
 
     }
