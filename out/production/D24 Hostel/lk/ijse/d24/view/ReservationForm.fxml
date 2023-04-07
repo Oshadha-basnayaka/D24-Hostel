@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -50,5 +52,25 @@
             <TableColumn prefWidth="166.0" text="GENDER" />
          </columns>
       </TableView>
+      <TextField fx:id="txtReservationId" layoutX="376.0" layoutY="282.0" prefHeight="30.0" prefWidth="250.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <JFXComboBox layoutX="1341.0" layoutY="247.0" prefHeight="23.0" prefWidth="123.0" />
+      <TextField fx:id="txtReservationStatus" layoutX="377.0" layoutY="437.0" prefHeight="30.0" prefWidth="250.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtReservationDate" layoutX="1168.0" layoutY="437.0" prefHeight="30.0" prefWidth="250.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <JFXButton layoutX="1210.0" layoutY="593.0" onAction="#onActionBtnReservationAdd" prefHeight="45.0" prefWidth="69.0" text="." />
+      <JFXButton layoutX="1302.0" layoutY="593.0" onAction="#onActionBtnReservationSearch" prefHeight="41.0" prefWidth="92.0" text="." />
+      <JFXButton layoutX="1424.0" layoutY="595.0" onAction="#onActionBtnReservationUpdate" prefHeight="40.0" prefWidth="85.0" text="." />
+      <JFXButton layoutX="1535.0" layoutY="595.0" onAction="#onActionBtnReservationDelete" prefHeight="40.0" prefWidth="92.0" text="." />
    </children>
 </AnchorPane>

@@ -27,6 +27,9 @@ public class Reservation {
     @ManyToOne
     private Room room;
 
+    @ManyToOne
+    private Student student;
+
 
 
 }
