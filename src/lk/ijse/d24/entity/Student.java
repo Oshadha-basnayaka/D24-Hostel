@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -28,6 +28,18 @@ public class Student {
     private Date dob;
     @Column(name = "s_gender", length = 50)
     private String gender;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Reservation> reservations = new ArrayList<>();
+
+    public Student(String id, String name, String address, int contact, Date dob, String gender) {
+        this.id = id;
+        this.name = name;
+        this.contact = contact;
+        this.address = address;
+        this.dob = dob;
+        this.gender = gender;
+    }
 
 
 }
