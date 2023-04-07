@@ -4,18 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
 import java.sql.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Entity
 
-public class StudentDTO {
+
+public class ReservationDTO {
+
     private String id;
-    private String name;
-    private int contact;
-    private String address;
-    private Date dob;
-    private String gender;
-    
+    private Date date;
+    private String status;
+
 }

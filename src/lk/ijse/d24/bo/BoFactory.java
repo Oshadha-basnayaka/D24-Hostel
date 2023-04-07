@@ -12,12 +12,13 @@ public class BoFactory {
     }
 
     public static BoFactory getInstance() {
-        return
-                (boFactory == null) ? boFactory = new BoFactory() : boFactory;
+        return (boFactory == null)
+                ? boFactory = new BoFactory()
+                : boFactory;
     }
 
     public SuperBO getBO(BoType boType){
-        switch (boType){
+        switch (boType) {
             case USER:
                 return new UserBOimpl();
             case STUDENT:
@@ -26,10 +27,10 @@ public class BoFactory {
                 return new RoomBOimpl();
             case RESERVATION:
                 return new ReservationBOimpl();
-
             default:
                 System.out.println("Class not Found");
                 return null;
+
 
         }
     }

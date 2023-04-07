@@ -1,13 +1,19 @@
 package lk.ijse.d24.controller;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.d24.bo.BoFactory;
+import lk.ijse.d24.bo.BoType;
+import lk.ijse.d24.bo.custom.StudentBO;
+import lk.ijse.d24.dto.StudentDTO;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
 
 import java.io.IOException;
+import java.sql.Date;
 
 public class StudentFormController {
     public AnchorPane pane;
@@ -17,6 +23,9 @@ public class StudentFormController {
     public TextField txtStudentAddress;
     public TextField txtStudentDob;
     public TextField txtStudentName;
+    public TextField txtStudentGender;
+
+    StudentBO studentBO = (StudentBO) BoFactory.getInstance().getBO(BoType.STUDENT);
 
     public void onActionBtnReservation(ActionEvent actionEvent) throws IOException {
         Navigation.navigate(Routes.RESERVATION, pane);
@@ -45,6 +54,24 @@ public class StudentFormController {
     }
 
     public void onActionBtnStudentAdd(ActionEvent actionEvent) {
+
+        String id = txtStudentId.getId();
+        String name= txtStudentName.getText();
+        String address = txtStudentAddress.getText();
+        Date date = Date.valueOf(txtStudentDob.getText());
+        String gender = txtStudentGender.getText();
+        int contact = Integer.parseInt(txtStudentContact.getText());
+
+        try {
+            boolean isAdded = studentBO.addStudent(new StudentDTO(id, name, contact, address, date, gender));
+            if (isAdded){
+                new Alert(Alert.AlertType.CONFIRMATION,"user Added!").show();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
     }
 
     public void onActionBtnStudentSearch(ActionEvent actionEvent) {

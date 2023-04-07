@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,4 +26,14 @@ public class Room {
     private int keyMoney;
     @Column(name = "r_qty", length = 50)
     private int qty;
+
+    public Room(String id, String roomType, int keyMoney, int qty) {
+        this.id = id;
+        this.roomType = roomType;
+        this.keyMoney = keyMoney;
+        this.qty = qty;
+    }
+
+    @OneToMany(mappedBy =  "room")
+    private List<Reservation> reservations = new ArrayList<>();
 }

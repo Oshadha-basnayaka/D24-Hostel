@@ -18,7 +18,7 @@ public class SessionFactoryConfiguration {
         Properties properties=new Properties();
 
         try{
-            properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("d24hostel"));
+            properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
         }catch (Exception e) {
             e.printStackTrace();
         }
