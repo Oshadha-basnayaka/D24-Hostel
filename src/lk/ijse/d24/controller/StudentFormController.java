@@ -55,7 +55,7 @@ public class StudentFormController {
 
     public void onActionBtnStudentAdd(ActionEvent actionEvent) {
 
-        String id = txtStudentId.getId();
+        String id = txtStudentId.getText();
         String name= txtStudentName.getText();
         String address = txtStudentAddress.getText();
         Date date = Date.valueOf(txtStudentDob.getText());
@@ -75,6 +75,24 @@ public class StudentFormController {
     }
 
     public void onActionBtnStudentSearch(ActionEvent actionEvent) {
+        String id = txtStudentId.getText();
+
+        try {
+            StudentDTO studentDTO = studentBO.getStudent(id);
+            txtStudentId.setText(studentDTO.getId());
+            txtStudentName.setText(studentDTO.getName());
+            txtStudentContact.setText(String.valueOf(studentDTO.getContact()));
+            txtStudentAddress.setText(studentDTO.getAddress());
+            txtStudentDob.setText(String.valueOf(studentDTO.getDob()));
+            txtStudentGender.setText(studentDTO.getGender());
+
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Input Student Id Is Ivalid!\nPlease Try Again..").show();
+            System.out.println(e);
+            System.out.println("catch");
+
+
+        }
     }
 
     public void onActionBtnStudentUpdate(ActionEvent actionEvent) {

@@ -12,7 +12,15 @@ public class StudentBOimpl implements StudentBO {
     StudentDAO studentDAO = (StudentDAO) DaoFactory.getInstance().getDAO(DaoType.STUDENT);
     @Override
     public StudentDTO getStudent(String id) {
-        return null;
+        Student student = studentDAO.search(id);
+        return new StudentDTO(
+                student.getId(),
+                student.getName(),
+                student.getContact(),
+                student.getAddress(),
+                student.getDob(),
+                student.getGender()
+        );
     }
 
     @Override
@@ -29,7 +37,14 @@ public class StudentBOimpl implements StudentBO {
 
     @Override
     public boolean updateStudent(StudentDTO studentDTO) {
-        return false;
+        return studentDAO.add(new Student(
+                studentDTO.getId(),
+                studentDTO.getName(),
+                studentDTO.getAddress(),
+                studentDTO.getContact(),
+                studentDTO.getDob(),
+                studentDTO.getGender()
+        ));
     }
 
     @Override
