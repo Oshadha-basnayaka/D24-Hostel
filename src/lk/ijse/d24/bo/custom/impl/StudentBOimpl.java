@@ -37,7 +37,7 @@ public class StudentBOimpl implements StudentBO {
 
     @Override
     public boolean updateStudent(StudentDTO studentDTO) {
-        return studentDAO.add(new Student(
+        return studentDAO.update(new Student(
                 studentDTO.getId(),
                 studentDTO.getName(),
                 studentDTO.getAddress(),
@@ -49,6 +49,6 @@ public class StudentBOimpl implements StudentBO {
 
     @Override
     public boolean deleteStudent(String id) {
-        return false;
+        return studentDAO.delete(id);
     }
 }

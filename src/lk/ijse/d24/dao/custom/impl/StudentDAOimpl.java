@@ -17,7 +17,7 @@ public class StudentDAOimpl implements StudentDAO {
 
         transaction.commit();;
         session.close();
-        return null;
+        return student;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class StudentDAOimpl implements StudentDAO {
 
         transaction.commit();;
         session.close();
-        return false;
+        return true;
     }
 
     @Override
@@ -40,12 +40,12 @@ public class StudentDAOimpl implements StudentDAO {
         Session session = SessionFactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-     session.update(entity);
+        session.update(entity);
 
         transaction.commit();;
         session.close();
 
-        return false;
+        return true;
     }
 
     @Override
@@ -61,6 +61,6 @@ public class StudentDAOimpl implements StudentDAO {
         transaction.commit();;
         session.close();
 
-        return false;
+        return true;
     }
 }

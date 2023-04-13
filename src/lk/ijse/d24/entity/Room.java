@@ -23,11 +23,11 @@ public class Room {
     @Column(name = "r_type", length = 50)
     private String roomType;
     @Column(name = "r_keyMoney", length = 50)
-    private int keyMoney;
+    private String keyMoney;
     @Column(name = "r_qty", length = 50)
     private int qty;
 
-    public Room(String id, String roomType, int keyMoney, int qty) {
+    public Room(String id, String roomType, String keyMoney, int qty) {
         this.id = id;
         this.roomType = roomType;
         this.keyMoney = keyMoney;

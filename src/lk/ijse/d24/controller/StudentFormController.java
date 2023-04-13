@@ -96,8 +96,39 @@ public class StudentFormController {
     }
 
     public void onActionBtnStudentUpdate(ActionEvent actionEvent) {
+        String id = txtStudentId.getText();
+        String name= txtStudentName.getText();
+        String address = txtStudentAddress.getText();
+        Date date = Date.valueOf(txtStudentDob.getText());
+        String gender = txtStudentGender.getText();
+        int contact = Integer.parseInt(txtStudentContact.getText());
+
+        try {
+            boolean isUpdate = studentBO.updateStudent(new StudentDTO(
+                    id,name,contact,address,date,gender
+            ));
+
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Somthing Went Wrong!\nPlease Try Again..").show();
+        }
     }
 
     public void onActionBtnStudentDelete(ActionEvent actionEvent) {
+        String id = txtStudentId.getText();
+
+        try {
+            boolean isDelete = studentBO.deleteStudent(id);
+
+            if (isDelete) {
+                new Alert(Alert.AlertType.ERROR, "Student Delete Succesfully!").show();
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Input Student Id Is Ivalid!\nPlease Try Again..").show();
+        }
+
     }
 }
