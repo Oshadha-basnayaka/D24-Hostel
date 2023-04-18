@@ -1,5 +1,6 @@
 package lk.ijse.d24.controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -11,13 +12,17 @@ import lk.ijse.d24.bo.BoType;
 import lk.ijse.d24.bo.custom.ReservationBO;
 import lk.ijse.d24.bo.custom.StudentBO;
 import lk.ijse.d24.dto.ReservationDTO;
+import lk.ijse.d24.dto.RoomDTO;
 import lk.ijse.d24.dto.StudentDTO;
 import lk.ijse.d24.entity.Student;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
+import lk.ijse.d24.view.TM.ReservationTM;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ReservationFormController {
     public AnchorPane pane;
@@ -144,5 +149,18 @@ public class ReservationFormController {
             System.out.println(e);
         }
 
+    }
+
+    private void loadreservation(ArrayList<ReservationDTO> reservationDTOArrayList) {
+        tblReservation.setItems(FXCollections.observableArrayList(
+                reservationDTOArrayList.stream().map(reservationDTO -> {
+                    return new ReservationTM(
+                            ReservationDTO.getId(),
+                            ReservationDTO.getDate(),
+                            ReservationDTO.getKeyMoney(),
+                            ReservationDTO.getQty()
+
+                    );
+                }).collect(Collectors.toList())));
     }
 }
