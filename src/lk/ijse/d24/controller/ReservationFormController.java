@@ -2,13 +2,17 @@ package lk.ijse.d24.controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.d24.bo.BoFactory;
 import lk.ijse.d24.bo.BoType;
 import lk.ijse.d24.bo.custom.ReservationBO;
+import lk.ijse.d24.bo.custom.StudentBO;
 import lk.ijse.d24.dto.ReservationDTO;
+import lk.ijse.d24.dto.StudentDTO;
+import lk.ijse.d24.entity.Student;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
 
@@ -23,6 +27,11 @@ public class ReservationFormController {
     public TextField txtReservationDate;
     public TextField txtReservationStudentId;
     public TextField txtReservationRoomId;
+    public TableColumn colResid;
+    public TableColumn colresStudentid;
+    public TableColumn colresRoomid;
+    public TableColumn colresSatus;
+    public TableColumn colresDate;
 
     ReservationBO reservationBO = (ReservationBO) BoFactory.getInstance().getBO(BoType.RESERVATION);
 
@@ -75,7 +84,21 @@ public class ReservationFormController {
     }
 
     public void onActionBtnReservationSearch(ActionEvent actionEvent) {
-        ReservationDTO reservationDTO = reservationBO.getReservation(id)
+        ReservationDTO reservationDTO = reservationBO.getReservation(txtReservationId.getText());
+
+        try {
+
+
+            txtReservationId.setText(reservationDTO.getId());
+            txtReservationRoomId.setText(reservationDTO.getRoomId());
+            txtReservationStudentId.setText(reservationDTO.getStudentId());
+            txtReservationStatus.setText(reservationDTO.getStatus());
+            txtReservationDate.setText(String.valueOf(reservationDTO.getDate()));
+
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Input Reservation Id Is Ivalid!\nPlease Try Again..").show();
+            System.out.println(e);
+        }
 
     }
 

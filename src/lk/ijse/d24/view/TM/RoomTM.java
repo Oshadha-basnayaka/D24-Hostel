@@ -1,17 +1,14 @@
-package lk.ijse.d24.dto;
+package lk.ijse.d24.view.TM;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 
-
-public class RoomDTO {
+public class RoomTM {
 
     private String id;
     private String roomType;

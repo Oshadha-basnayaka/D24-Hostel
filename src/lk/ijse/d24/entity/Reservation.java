@@ -20,16 +20,15 @@ public class Reservation {
     private Date date;
     @Column(name = "res_status", length = 50)
     private String status;
-    @Column(name = "res_student_id", length = 50)
 //    private String reservationStudentId;
 //    @Column(name = "res_room_id", length = 50)
 //    private String reservationRoomId;
 
     @ManyToOne
-    @JoinColumn(name = "s_id",referencedColumnName = "s_id",nullable = false)
+    @JoinColumn(name = "r_id",referencedColumnName = "r_id",nullable = false)
     private Room room;
 
-    @JoinColumn(name = "r_id" , referencedColumnName = "r_id",nullable = false)
+    @JoinColumn(name = "s_id" , referencedColumnName = "s_id ",nullable = false)
     @ManyToOne
     private Student student;
 

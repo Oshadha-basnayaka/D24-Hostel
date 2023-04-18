@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.engine.spi.SessionDelegatorBaseImpl;
 
+import java.util.List;
+
 public class StudentDAOimpl implements StudentDAO {
     @Override
     public Student search(String id) {
@@ -62,5 +64,19 @@ public class StudentDAOimpl implements StudentDAO {
         session.close();
 
         return true;
+    }
+
+    @Override
+    public List<Student> getAll() {
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Student> list = session.createQuery("FROM Student ").list();
+
+
+        transaction.commit();
+        session.close();
+
+        return list;
     }
 }

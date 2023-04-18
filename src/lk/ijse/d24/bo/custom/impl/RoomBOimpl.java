@@ -4,11 +4,11 @@ import lk.ijse.d24.bo.custom.RoomBO;
 import lk.ijse.d24.dao.DaoFactory;
 import lk.ijse.d24.dao.DaoType;
 import lk.ijse.d24.dao.custom.RoomDAO;
-import lk.ijse.d24.dao.custom.StudentDAO;
 import lk.ijse.d24.dto.RoomDTO;
-import lk.ijse.d24.dto.StudentDTO;
 import lk.ijse.d24.entity.Room;
-import lk.ijse.d24.entity.Student;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 
 public class RoomBOimpl implements RoomBO {
@@ -52,5 +52,18 @@ public class RoomBOimpl implements RoomBO {
     @Override
     public boolean deleteRoom(String id) {
        return roomDAO.delete(id);
+    }
+
+
+    @Override
+    public ArrayList<RoomDTO> getAllRooms() {
+        ArrayList<RoomDTO> roomDTOArrayList = new ArrayList<>();
+        roomDTOArrayList.addAll(roomDAO.getAll().stream().map(room -> {return  new RoomDTO(
+                room.getId(),
+                room.getRoomType(),
+                room.getKeyMoney(),
+                room.getQty());
+        }).collect(Collectors.toList()));
+        return roomDTOArrayList;
     }
 }

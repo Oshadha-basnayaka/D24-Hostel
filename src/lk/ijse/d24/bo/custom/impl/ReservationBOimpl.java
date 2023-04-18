@@ -7,9 +7,13 @@ import lk.ijse.d24.dao.custom.ReservationDAO;
 import lk.ijse.d24.dao.custom.RoomDAO;
 import lk.ijse.d24.dao.custom.StudentDAO;
 import lk.ijse.d24.dto.ReservationDTO;
+import lk.ijse.d24.dto.RoomDTO;
 import lk.ijse.d24.entity.Reservation;
 import lk.ijse.d24.entity.Room;
 import lk.ijse.d24.entity.Student;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ReservationBOimpl implements ReservationBO {
 
@@ -31,30 +35,30 @@ public class ReservationBOimpl implements ReservationBO {
     @Override
     public boolean addReservation(ReservationDTO reservationDTO) {
 
-        Student student = studentDAO.search(reservationDTO.getReservationStudentId());
-        Room room = roomDAO.search(reservationDTO.getReservationRoomId());
+        Student student = studentDAO.search(reservationDTO.getStudentId());
+        Room room = roomDAO.search(reservationDTO.getRoomId());
 
         return reservationDAO.add(new Reservation(
                 reservationDTO.getId(),
                 reservationDTO.getDate(),
                 reservationDTO.getStatus(),
-                student,
-                room
+                room,
+                student
         ));
     }
 
     @Override
     public boolean updateReservation(ReservationDTO reservationDTO) {
 
-        Student student = studentDAO.search(reservationDTO.getReservationStudentId());
-        Room room = roomDAO.search(reservationDTO.getReservationRoomId());
+        Student student = studentDAO.search(reservationDTO.getStudentId());
+        Room room = roomDAO.search(reservationDTO.getRoomId());
 
         return reservationDAO.update(new Reservation(
                 reservationDTO.getId(),
                 reservationDTO.getDate(),
                 reservationDTO.getStatus(),
-                student,
-                room
+               room,
+                student
         ));
 
     }
@@ -62,5 +66,19 @@ public class ReservationBOimpl implements ReservationBO {
     @Override
     public boolean deleteReservation(String id) {
       return  reservationDAO.delete(id);
+    }
+
+
+     @Override
+    public ArrayList<ReservationDTO> getAllReservation() {
+        ArrayList<ReservationDTO> reservationDTOArrayList = new ArrayList<>();
+         reservationDTOArrayList.addAll(reservationDAO.getAll().stream().map(reservation -> {return  new ReservationDTO(
+                reservation.getId(),
+                reservation.getDate(),
+                reservation.getStatus(),
+                reservation.getStudent(),
+                reservation.getRoom());
+        }).collect(Collectors.toList()));
+        return reservationDTOArrayList;
     }
 }

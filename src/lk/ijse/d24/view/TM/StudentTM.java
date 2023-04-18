@@ -1,4 +1,4 @@
-package lk.ijse.d24.dto;
+package lk.ijse.d24.view.TM;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,11 +10,11 @@ import java.sql.Date;
 @AllArgsConstructor
 @Data
 
-public class UserDTO {
+public class StudentTM {
+    private String id;
     private String name;
-    private String password;
-    private String email;
+    private int contact;
     private String address;
-    private Date dateOfBirth;
-
+    private Date dob;
+    private String gender;
 }

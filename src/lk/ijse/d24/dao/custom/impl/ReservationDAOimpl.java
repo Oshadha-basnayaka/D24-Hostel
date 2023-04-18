@@ -2,9 +2,12 @@ package lk.ijse.d24.dao.custom.impl;
 
 import lk.ijse.d24.dao.custom.ReservationDAO;
 import lk.ijse.d24.entity.Reservation;
+import lk.ijse.d24.entity.Room;
 import lk.ijse.d24.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class ReservationDAOimpl implements ReservationDAO {
     @Override
@@ -60,5 +63,19 @@ public class ReservationDAOimpl implements ReservationDAO {
         session.close();
 
         return true;
+    }
+
+    @Override
+    public List<Reservation> getAll() {
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Reservation> reservation = session.createQuery("FROM Reservation ").list();
+
+
+        transaction.commit();
+        session.close();
+
+        return reservation;
     }
 }

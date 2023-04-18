@@ -8,6 +8,9 @@ import lk.ijse.d24.dao.custom.StudentDAO;
 import lk.ijse.d24.dto.StudentDTO;
 import lk.ijse.d24.entity.Student;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 public class StudentBOimpl implements StudentBO {
     StudentDAO studentDAO = (StudentDAO) DaoFactory.getInstance().getDAO(DaoType.STUDENT);
     @Override
@@ -50,5 +53,19 @@ public class StudentBOimpl implements StudentBO {
     @Override
     public boolean deleteStudent(String id) {
         return studentDAO.delete(id);
+    }
+
+    @Override
+    public ArrayList<StudentDTO> getAllStudent() {
+        ArrayList<StudentDTO> studentDTOArrayList = new ArrayList<>();
+        studentDTOArrayList.addAll(studentDAO.getAll().stream().map(student -> {return  new StudentDTO(
+                student.getId(),
+                student.getName(),
+                student.getContact(),
+                student.getAddress(),
+                student.getDob(),
+                student.getGender());
+        }).collect(Collectors.toList()));
+        return studentDTOArrayList;
     }
 }

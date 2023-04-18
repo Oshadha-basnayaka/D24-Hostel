@@ -43,12 +43,11 @@
       </JFXButton>
       <TableView fx:id="tblReservation" layoutX="510.0" layoutY="710.0" prefHeight="300.0" prefWidth="1000.0">
          <columns>
-            <TableColumn prefWidth="166.0" text="ID" />
-            <TableColumn prefWidth="166.0" text="NAME" />
-            <TableColumn prefWidth="166.0" text="CONTACT" />
-            <TableColumn prefWidth="170.0" text="ADDRESS" />
-            <TableColumn prefWidth="166.0" text="DOB" />
-            <TableColumn prefWidth="166.0" text="GENDER" />
+            <TableColumn fx:id="colResid" prefWidth="200.0" text="RESERVATION ID" />
+            <TableColumn fx:id="colresStudentid" prefWidth="200.0" text="STUDENT ID" />
+            <TableColumn fx:id="colresRoomid" prefWidth="200.0" text="ROOM ID" />
+            <TableColumn fx:id="colresSatus" prefWidth="200.0" text="STATUS" />
+            <TableColumn fx:id="colresDate" prefWidth="200.0" text="DATE" />
          </columns>
       </TableView>
       <TextField fx:id="txtReservationId" layoutX="376.0" layoutY="282.0" prefHeight="30.0" prefWidth="250.0">
