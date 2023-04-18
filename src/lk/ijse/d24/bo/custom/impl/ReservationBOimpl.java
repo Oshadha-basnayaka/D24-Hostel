@@ -72,12 +72,15 @@ public class ReservationBOimpl implements ReservationBO {
      @Override
     public ArrayList<ReservationDTO> getAllReservation() {
         ArrayList<ReservationDTO> reservationDTOArrayList = new ArrayList<>();
-         reservationDTOArrayList.addAll(reservationDAO.getAll().stream().map(reservation -> {return  new ReservationDTO(
+         reservationDTOArrayList.addAll(reservationDAO.getAll().stream().map(reservation -> {
+             String StudentId = reservation.getStudent().getId();
+             String roomId = reservation.getRoom().getId();
+             return  new ReservationDTO(
                 reservation.getId(),
                 reservation.getDate(),
                 reservation.getStatus(),
-                reservation.getStudent(),
-                reservation.getRoom());
+                StudentId,
+                roomId);
         }).collect(Collectors.toList()));
 
         return reservationDTOArrayList;
