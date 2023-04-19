@@ -12,7 +12,7 @@ import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
 
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
 
 public class UserFormContoller {
     public AnchorPane pane;
@@ -47,11 +47,11 @@ public class UserFormContoller {
 
     public void onActionBtnUserAdd(ActionEvent actionEvent) {
 
-        String userName = txtUserName.getText();
+        String userName= txtUserName.getText();
         String passWord = txtUserPassword.getText();
         String userEmail = txtUserEmail.getText();
         String userAddress = txtUserAddress.getText();
-        Date userDOB = Date.va
+       Date userDOB =Date.valueOf( txtUserDOB.getUserData());
 
         try {
             boolean isAdded = userBO.addUser(
