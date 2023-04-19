@@ -4,6 +4,11 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.d24.bo.BoFactory;
+import lk.ijse.d24.bo.BoType;
+import lk.ijse.d24.bo.custom.ReservationBO;
+import lk.ijse.d24.bo.custom.UserBO;
+import lk.ijse.d24.dto.UserDTO;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
 
@@ -14,20 +19,40 @@ public class   MainLoginFormController {
     public JFXTextField txtPWord;
     public AnchorPane pane;
 
+    UserBO userBO = (UserBO) BoFactory.getInstance().getBO(BoType.USER);
+
     public void onActionBtnLogin(ActionEvent actionEvent) throws IOException {
         login();
     }
 
 
     private void login() throws IOException {
+        UserDTO userDTO = userBO.getUser(txtUserName.getText());
 
-        if (txtUserName.getText().equals("admin") && txtPWord.getText().equals("1234")) {
+        try {
 
-            System.out.println("done");
+            if (txtUserName.getText().equals(userDTO.getName()) && txtPWord.getText().equals(userDTO.getPassword())) {
 
-            Navigation.navigate(Routes.DASHBOAD, pane);
+                System.out.println("done");
 
+                Navigation.navigate(Routes.DASHBOAD, pane);
+            }
+            else {
+                new Alert(Alert.AlertType.WARNING, "wrong password or user name!").show();
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
         }
+
+//
+//        if (txtUserName.getText().equals("admin") && txtPWord.getText().equals("1234")) {
+//
+//            System.out.println("done");
+//
+//            Navigation.navigate(Routes.DASHBOAD, pane);
+//
+//        }
 //        else if (TxtUserName.getText().equals("reception") && TxtPassword.getText().equals("1234")) {
 //
 //            System.out.println("done");
@@ -36,9 +61,11 @@ public class   MainLoginFormController {
 //
 //        }
 
-        else {
-            Notification();
-        }
+//        else {
+//            Notification();
+//        }
+
+
     }
 
     public void Notification(){
