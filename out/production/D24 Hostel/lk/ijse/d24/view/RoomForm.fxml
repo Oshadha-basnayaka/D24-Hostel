@@ -41,7 +41,7 @@
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblRoom" layoutX="510.0" layoutY="710.0" prefHeight="300.0" prefWidth="1000.0">
+      <TableView fx:id="tblRoom" layoutX="510.0" layoutY="675.0" prefHeight="300.0" prefWidth="1000.0">
          <columns>
             <TableColumn fx:id="colRoomId" prefWidth="250.0" text="ROOM ID" />
             <TableColumn fx:id="colRoomType" prefWidth="250.0" text="ROOM TYPE" />
