@@ -11,7 +11,17 @@ import java.util.List;
 public class UserDAOimpl implements UserDAO {
     @Override
     public User search(String id) {
-        return null;
+
+
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        User user = session.get(User.class, id);
+
+        transaction.commit();
+        session.close();
+
+        return user;
     }
 
     @Override

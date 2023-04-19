@@ -76,6 +76,25 @@ public class UserFormContoller {
         }
 
     public void onActionBtnUserSearch(ActionEvent actionEvent) {
+        String id = txtUserName.getText();
+
+        UserDTO user = UserBO.getUser(id);
+
+        txtUserName.setText(user.getId());
+        txtFullName.setText(user.getName());
+        txtUserEmail.setText(user.getEmail());
+        txtUserName.setText(user.getUserName());
+        txtPassword.setText(user.getPassword());
+    }catch (Exception e) {
+        System.out.println(e);
+        clearTextFields();
+
+        btnAddNewUser.setVisible(false);
+        txtAddNewUser.setVisible(false);
+
+        paneConfirmPassword.setVisible(true);
+    }
+
     }
 
     public void onActionBtnUserUpdate(ActionEvent actionEvent) {
