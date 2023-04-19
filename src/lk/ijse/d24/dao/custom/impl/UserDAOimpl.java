@@ -40,6 +40,15 @@ public class UserDAOimpl implements UserDAO {
 
     @Override
     public List<User> getAll() {
-        return null;
+
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List userList = session.createQuery("FROM User ").list();
+
+        transaction.commit();
+        session.close();
+
+        return userList;
     }
 }
