@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.d24.bo.BoFactory;
 import lk.ijse.d24.bo.BoType;
@@ -37,6 +38,24 @@ public class ReservationFormController {
     public TableColumn colresRoomid;
     public TableColumn colresSatus;
     public TableColumn colresDate;
+
+    public void initialize() {
+        colResid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colresDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colresSatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colresStudentid.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
+        colresRoomid.setCellValueFactory(new PropertyValueFactory<>("RoomId"));
+
+
+
+        try {
+            loadReservation(reservationBO.getAllReservation());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
+    }
 
     ReservationBO reservationBO = (ReservationBO) BoFactory.getInstance().getBO(BoType.RESERVATION);
 
@@ -79,6 +98,8 @@ public class ReservationFormController {
 
 
             if (isAdded) {
+
+                loadReservation(reservationBO.getAllReservation());
                 new Alert(Alert.AlertType.CONFIRMATION, "User Added!").show();
             }
         } catch (Exception e) {
@@ -127,6 +148,7 @@ public class ReservationFormController {
 
 
             if (isUpdate) {
+                loadReservation(reservationBO.getAllReservation());
                 new Alert(Alert.AlertType.CONFIRMATION, "User Added!").show();
             }
         } catch (Exception e) {
@@ -143,6 +165,7 @@ public class ReservationFormController {
             boolean isDelete = reservationBO.deleteReservation(id);
 
             if (isDelete){
+                loadReservation(reservationBO.getAllReservation());
                 new Alert(Alert.AlertType.CONFIRMATION, "Reservation Delete Succesfully!").show();
             }
         } catch (Exception e) {
@@ -151,14 +174,15 @@ public class ReservationFormController {
 
     }
 
-    private void loadreservation(ArrayList<ReservationDTO> reservationDTOArrayList) {
+    private void loadReservation(ArrayList<ReservationDTO> reservationDTOArrayList) {
         tblReservation.setItems(FXCollections.observableArrayList(
                 reservationDTOArrayList.stream().map(reservationDTO -> {
                     return new ReservationTM(
-                            ReservationDTO.getId(),
-                            ReservationDTO.getDate(),
-                            ReservationDTO.getKeyMoney(),
-                            ReservationDTO.getQty()
+                            reservationDTO.getId(),
+                            reservationDTO.getDate(),
+                            reservationDTO.getStatus(),
+                            reservationDTO.getStudentId(),
+                            reservationDTO.getRoomId()
 
                     );
                 }).collect(Collectors.toList())));

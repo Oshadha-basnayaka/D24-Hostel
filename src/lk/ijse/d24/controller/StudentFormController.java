@@ -95,6 +95,7 @@ public class StudentFormController {
         try {
             boolean isAdded = studentBO.addStudent(new StudentDTO(id, name, contact, address, date, gender));
             if (isAdded) {
+                loadstudent(studentBO.getAllStudent());
                 new Alert(Alert.AlertType.CONFIRMATION, "user Added!").show();
             }
         } catch (Exception e) {
@@ -137,6 +138,10 @@ public class StudentFormController {
             boolean isUpdate = studentBO.updateStudent(new StudentDTO(
                     id, name, contact, address, date, gender
             ));
+            if (isUpdate) {
+                loadstudent(studentBO.getAllStudent());
+                new Alert(Alert.AlertType.CONFIRMATION, "User Update!").show();
+            }
 
         } catch (Exception e) {
             System.out.println(e);
@@ -151,6 +156,7 @@ public class StudentFormController {
             boolean isDelete = studentBO.deleteStudent(id);
 
             if (isDelete) {
+                loadstudent(studentBO.getAllStudent());
                 new Alert(Alert.AlertType.ERROR, "Student Delete Succesfully!").show();
 
             }

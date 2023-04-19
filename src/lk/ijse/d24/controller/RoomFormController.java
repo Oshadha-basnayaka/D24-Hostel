@@ -86,6 +86,7 @@ public class RoomFormController {
                     qty
             ));
             if (isAdded) {
+                loadRooms(roomBO.getAllRooms());
                 new Alert(Alert.AlertType.CONFIRMATION, "Room Added Successfully!").show();
 
             }
@@ -128,6 +129,7 @@ public class RoomFormController {
                     qty
             ));
             if (isUpdate) {
+                loadRooms(roomBO.getAllRooms());
                 new Alert(Alert.AlertType.CONFIRMATION, "Room update Successfully!").show();
 
             }
@@ -147,6 +149,7 @@ public class RoomFormController {
             boolean isDelete = roomBO.deleteRoom(id);
 
             if (isDelete){
+                loadRooms(roomBO.getAllRooms());
 
                 new Alert(Alert.AlertType.CONFIRMATION, "Room Delete Successfully!").show();
             }
