@@ -8,6 +8,7 @@ import lk.ijse.d24.dto.UserDTO;
 import lk.ijse.d24.entity.User;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class UserBOimpl implements UserBO {
 
@@ -15,13 +16,20 @@ public class UserBOimpl implements UserBO {
 
     @Override
     public UserDTO getUser(String id) {
-      User user = user
+        User user = userDAO.search(id);
+        return new UserDTO(
+                user.getName(),
+                user.getPassword(),
+                user.getEmail(),
+                user.getAddress(),
+                user.getDateOfBirth()
+        );
     }
 
     @Override
     public boolean addUser(UserDTO userDTO) {
 
-        return UserDAO.add(new User(
+        return userDAO.add(new User(
                 userDTO.getName(),
                 userDTO.getPassword(),
                 userDTO.getEmail(),
@@ -42,6 +50,17 @@ public class UserBOimpl implements UserBO {
 
     @Override
     public ArrayList<UserDTO> getAllUser() {
-        return null;
+
+        ArrayList<UserDTO> userList = new ArrayList<>();
+        userList.addAll(userDAO.getAll().stream().map(user -> {
+            return new UserDTO(
+                    user.getName(),
+                    user.getPassword(),
+                    user.getEmail(),
+                    user.getAddress(),
+                    user.getDateOfBirth());
+        }).collect(Collectors.toList()));
+
+        return userList;
     }
 }

@@ -1,12 +1,18 @@
 package lk.ijse.d24.controller;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.d24.bo.BoFactory;
+import lk.ijse.d24.bo.BoType;
+import lk.ijse.d24.bo.custom.UserBO;
+import lk.ijse.d24.dto.UserDTO;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class UserFormContoller {
     public AnchorPane pane;
@@ -15,6 +21,8 @@ public class UserFormContoller {
     public TextField txtUserAddress;
     public TextField txtUserDOB;
     public TextField txtUserPassword;
+
+    UserBO userBO = (UserBO) BoFactory.getInstance().getBO(BoType.USER);
 
     public void onActionBtnReservation(ActionEvent actionEvent) throws IOException {
 
@@ -39,9 +47,33 @@ public class UserFormContoller {
 
     public void onActionBtnUserAdd(ActionEvent actionEvent) {
 
+        String userName = txtUserName.getText();
+        String passWord = txtUserPassword.getText();
+        String userEmail = txtUserEmail.getText();
+        String userAddress = txtUserAddress.getText();
+        Date userDOB = Date.va
+
+        try {
+            boolean isAdded = userBO.addUser(
+                    new UserDTO(
+                            userName,
+                            passWord,
+                            userEmail,
+                            userAddress,
+                            userDOB
+                    )
+            );
+
+            if (isAdded) {
+                new Alert(Alert.AlertType.CONFIRMATION, "User Added Successfuly!").show();
+
+            }
+        }catch (Exception e) {
+
+        }
 
 
-    }
+        }
 
     public void onActionBtnUserSearch(ActionEvent actionEvent) {
     }
