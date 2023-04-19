@@ -9,7 +9,7 @@ import lk.ijse.d24.util.Routes;
 
 import java.io.IOException;
 
-public class  MainLoginFormController {
+public class   MainLoginFormController {
     public JFXTextField txtUserName;
     public JFXTextField txtPWord;
     public AnchorPane pane;

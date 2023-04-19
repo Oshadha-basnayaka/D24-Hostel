@@ -47,11 +47,11 @@ public class UserFormContoller {
 
     public void onActionBtnUserAdd(ActionEvent actionEvent) {
 
-        String userName= txtUserName.getText();
+        String userName = txtUserName.getText();
         String passWord = txtUserPassword.getText();
         String userEmail = txtUserEmail.getText();
         String userAddress = txtUserAddress.getText();
-       Date userDOB =Date.valueOf( txtUserDOB.getText());
+        Date userDOB = Date.valueOf(txtUserDOB.getText());
 
         try {
             boolean isAdded = userBO.addUser(
@@ -68,34 +68,33 @@ public class UserFormContoller {
                 new Alert(Alert.AlertType.CONFIRMATION, "User Added Successfuly!").show();
 
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
 
         }
 
 
-        }
+    }
 
     public void onActionBtnUserSearch(ActionEvent actionEvent) {
         String id = txtUserName.getText();
 
-        UserDTO user = UserBO.getUser(id);
+        try {
 
-        txtUserName.setText(user.getId());
-        txtFullName.setText(user.getName());
+        UserDTO user = userBO.getUser(id);
+
+        txtUserName.setText(user.getName());
+        txtUserPassword.setText(user.getPassword());
         txtUserEmail.setText(user.getEmail());
-        txtUserName.setText(user.getUserName());
-        txtPassword.setText(user.getPassword());
-    }catch (Exception e) {
+        txtUserAddress.setText(user.getAddress());
+        txtUserDOB.setText(String.valueOf(user.getDateOfBirth()));
+
+
+    }catch(Exception e){
         System.out.println(e);
-        clearTextFields();
-
-        btnAddNewUser.setVisible(false);
-        txtAddNewUser.setVisible(false);
-
-        paneConfirmPassword.setVisible(true);
-    }
 
     }
+
+}
 
     public void onActionBtnUserUpdate(ActionEvent actionEvent) {
     }
