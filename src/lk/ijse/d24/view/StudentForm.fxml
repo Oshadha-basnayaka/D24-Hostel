@@ -51,7 +51,7 @@
             <TableColumn fx:id="colGender" prefWidth="166.0" text="GENDER" />
         </columns>
       </TableView>
-      <TextField fx:id="txtStudentId" layoutX="376.0" layoutY="280.0" prefHeight="30.0" prefWidth="250.0">
+      <TextField fx:id="txtStudentId" layoutX="376.0" layoutY="280.0" onKeyReleased="#onKeyRelStudentId" prefHeight="30.0" prefWidth="250.0">
          <font>
             <Font size="18.0" />
          </font>
