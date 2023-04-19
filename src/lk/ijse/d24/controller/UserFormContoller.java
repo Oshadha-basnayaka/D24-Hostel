@@ -51,7 +51,7 @@ public class UserFormContoller {
         String passWord = txtUserPassword.getText();
         String userEmail = txtUserEmail.getText();
         String userAddress = txtUserAddress.getText();
-       Date userDOB =Date.valueOf( txtUserDOB.getUserData());
+       Date userDOB =Date.valueOf( txtUserDOB.getText());
 
         try {
             boolean isAdded = userBO.addUser(
