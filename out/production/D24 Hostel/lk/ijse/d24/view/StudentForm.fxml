@@ -41,7 +41,7 @@
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblStudent" layoutX="510.0" layoutY="710.0" prefHeight="300.0" prefWidth="1000.0">
+      <TableView fx:id="tblStudent" layoutX="510.0" layoutY="675.0" prefHeight="300.0" prefWidth="1000.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="166.0" text="ID" />
           <TableColumn fx:id="colName" prefWidth="166.0" text="NAME" />
