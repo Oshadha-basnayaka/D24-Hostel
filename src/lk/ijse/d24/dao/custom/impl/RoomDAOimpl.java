@@ -85,14 +85,14 @@ public class RoomDAOimpl implements RoomDAO {
 
         Query query = session.createQuery("SELECT id FROM Room ORDER BY id DESC ");
 
-        String newId = "R00 - 001";
+        String newId = "R00-001";
 
         if (query.list().size() == 0) {
             return newId;
         } else {
             String genarateId = (String) query.list().get(0);
 
-            String[] split = genarateId.split("R00 - 00");
+            String[] split = genarateId.split("R00-00");
 
             for (String i : split) {
                 genarateId = i;
@@ -100,7 +100,7 @@ public class RoomDAOimpl implements RoomDAO {
 
             int genNumber = Integer.valueOf(genarateId);
 
-            genarateId = "R00 - 00" + (genNumber + 1);
+            genarateId = "R00-00" + (genNumber + 1);
 
             transaction.commit();
             session.close();

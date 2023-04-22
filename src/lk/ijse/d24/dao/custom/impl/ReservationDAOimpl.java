@@ -89,14 +89,14 @@ public class ReservationDAOimpl implements ReservationDAO {
 
         Query query = session.createQuery("SELECT id FROM Reservation ORDER BY id DESC ");
 
-        String newId = "RES00 - 001";
+        String newId = "RES00-001";
 
         if (query.list().size() == 0) {
             return newId;
         } else {
             String genarateId = (String) query.list().get(0);
 
-            String[] split = genarateId.split("RES00 - 00");
+            String[] split = genarateId.split("RES00-00");
 
             for (String i : split) {
                 genarateId = i;
@@ -104,7 +104,7 @@ public class ReservationDAOimpl implements ReservationDAO {
 
             int genNumber = Integer.valueOf(genarateId);
 
-            genarateId = "RES00 - 00" + (genNumber + 1);
+            genarateId = "RES00-00" + (genNumber + 1);
 
             transaction.commit();
             session.close();
@@ -119,7 +119,7 @@ public class ReservationDAOimpl implements ReservationDAO {
         Session session = SessionFactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        List<Student> notPaylist = session.createQuery("SELECT student FROM Reservation WHERE status LIKE : ID").setParameter("ID", "NOT PAID").list();
+        List<Student> notPaylist = session.createQuery("SELECT student FROM ReservationWHERE status LIKE : ID").setParameter("ID", "NOT PAID").list();
 
         transaction.commit();
         session.close();

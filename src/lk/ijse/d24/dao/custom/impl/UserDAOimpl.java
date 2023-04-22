@@ -71,14 +71,14 @@ public class UserDAOimpl implements UserDAO {
 
         Query query = session.createQuery("SELECT name FROM User ORDER BY name DESC ");
 
-        String newId = "U00 - 001";
+        String newId = "U00-001";
 
         if (query.list().size() == 0) {
             return newId;
         }else {
             String genarateId = (String) query.list().get(0);
 
-            String[] split = genarateId.split("U00 - 00");
+            String[] split = genarateId.split("U00-00");
 
             for (String i:split) {
                 genarateId = i;
@@ -86,12 +86,12 @@ public class UserDAOimpl implements UserDAO {
 
             int genNumber = Integer.valueOf(genarateId);
 
-            genarateId = "U00 - 00" + (genNumber + 1);
+            genarateId = "U00-00" + (genNumber + 1);
 
             transaction.commit();
             session.close();
 
-            return genarateId;
+            return null;
         }
 
         }

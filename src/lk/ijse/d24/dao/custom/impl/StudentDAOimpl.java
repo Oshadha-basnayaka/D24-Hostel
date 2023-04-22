@@ -92,14 +92,14 @@ public class StudentDAOimpl implements StudentDAO {
 
         Query query = session.createQuery("SELECT id FROM Student ORDER BY id DESC ");
 
-        String newId = "S00 - 001";
+        String newId = "S00-001";
 
         if (query.list().size() == 0) {
             return newId;
         } else {
             String genarateId = (String) query.list().get(0);
 
-            String[] split = genarateId.split("S00 - 00");
+            String[] split = genarateId.split("S00-00");
 
             for (String i : split) {
                 genarateId = i;
@@ -107,7 +107,7 @@ public class StudentDAOimpl implements StudentDAO {
 
             int genNumber = Integer.valueOf(genarateId);
 
-            genarateId = "S00 - 00" + (genNumber + 1);
+            genarateId = "S00-00" + (genNumber + 1);
 
             transaction.commit();
             session.close();

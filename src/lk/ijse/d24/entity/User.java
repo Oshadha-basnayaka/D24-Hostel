@@ -16,7 +16,7 @@ import java.sql.Date;
 
 public class User {
     @Id
-    @Column(name = "u_name", length = 10, nullable = false)
+    @Column(name = "u_name", length = 10)
     private String name;
     @Column(name = "pass_word", length = 8, nullable = false)
     private String password;
