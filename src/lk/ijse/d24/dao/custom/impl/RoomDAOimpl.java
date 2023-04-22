@@ -6,6 +6,7 @@ import lk.ijse.d24.entity.Student;
 import lk.ijse.d24.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -74,5 +75,37 @@ public class RoomDAOimpl implements RoomDAO {
         session.close();
 
         return room;
+    }
+
+    @Override
+    public String generateNewId() {
+
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT id FROM Room ORDER BY id DESC ");
+
+        String newId = "R00 - 001";
+
+        if (query.list().size() == 0) {
+            return newId;
+        } else {
+            String genarateId = (String) query.list().get(0);
+
+            String[] split = genarateId.split("R00 - 00");
+
+            for (String i : split) {
+                genarateId = i;
+            }
+
+            int genNumber = Integer.valueOf(genarateId);
+
+            genarateId = "R00 - 00" + (genNumber + 1);
+
+            transaction.commit();
+            session.close();
+
+            return genarateId;
+        }
     }
 }

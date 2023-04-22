@@ -8,6 +8,7 @@ import lk.ijse.d24.dao.custom.RoomDAO;
 import lk.ijse.d24.dao.custom.StudentDAO;
 import lk.ijse.d24.dto.ReservationDTO;
 import lk.ijse.d24.dto.RoomDTO;
+import lk.ijse.d24.dto.StudentDTO;
 import lk.ijse.d24.entity.Reservation;
 import lk.ijse.d24.entity.Room;
 import lk.ijse.d24.entity.Student;
@@ -85,4 +86,29 @@ public class ReservationBOimpl implements ReservationBO {
 
         return reservationDTOArrayList;
     }
+
+    @Override
+    public String genarateReservationId() {
+        return reservationDAO.generateNewId();
+    }
+
+    @Override
+    public ArrayList<StudentDTO> getNotPayStudent() {
+        ArrayList<StudentDTO> notPayStudentList = new ArrayList<>();
+
+        notPayStudentList.addAll(reservationDAO.getKeyMoneyNotPaid().stream().map(student -> {
+            return new StudentDTO(
+                    student.getId(),
+                    student.getName(),
+                    student.getContact(),
+                    student.getAddress(),
+                    student.getDob(),
+                    student.getGender()
+            );
+        }).collect(Collectors.toList()));
+
+        return notPayStudentList;
+    }
+
+
 }

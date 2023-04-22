@@ -34,6 +34,9 @@ public class RoomFormController {
     public TableColumn colQty;
 
     public void initialize() {
+
+        generateNewId();
+
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
@@ -169,5 +172,14 @@ public class RoomFormController {
 
                     );
                 }).collect(Collectors.toList())));
+    }
+
+    private void generateNewId() {
+        try {
+            String genarateNewId = roomBO.genarateRoomId();
+            txtRoomId.setText(genarateNewId);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

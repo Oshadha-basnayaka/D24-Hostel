@@ -38,7 +38,12 @@ public class StudentFormController {
     public TableColumn colBob;
     public TableColumn colGender;
 
+
+
     public void initialize() {
+
+        generateNewId();
+
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contac"));
@@ -185,5 +190,15 @@ public class StudentFormController {
     }
 
     public void onKeyRelStudentId(KeyEvent keyEvent) {
+    }
+
+    private void generateNewId() {
+        try {
+            String generateNewId = studentBO.genarateStudentId();
+            txtStudentId.setText(generateNewId);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 }

@@ -68,4 +68,9 @@ public class StudentBOimpl implements StudentBO {
         }).collect(Collectors.toList()));
         return studentDTOArrayList;
     }
+
+    @Override
+    public String genarateStudentId() {
+        return studentDAO.generateNewId();
+    }
 }

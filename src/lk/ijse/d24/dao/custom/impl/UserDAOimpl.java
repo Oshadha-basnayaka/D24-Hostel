@@ -5,6 +5,7 @@ import lk.ijse.d24.entity.User;
 import lk.ijse.d24.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -61,4 +62,38 @@ public class UserDAOimpl implements UserDAO {
 
         return userList;
     }
-}
+
+    @Override
+    public String generateNewId() {
+
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT name FROM User ORDER BY name DESC ");
+
+        String newId = "U00 - 001";
+
+        if (query.list().size() == 0) {
+            return newId;
+        }else {
+            String genarateId = (String) query.list().get(0);
+
+            String[] split = genarateId.split("U00 - 00");
+
+            for (String i:split) {
+                genarateId = i;
+            }
+
+            int genNumber = Integer.valueOf(genarateId);
+
+            genarateId = "U00 - 00" + (genNumber + 1);
+
+            transaction.commit();
+            session.close();
+
+            return genarateId;
+        }
+
+        }
+    }
+

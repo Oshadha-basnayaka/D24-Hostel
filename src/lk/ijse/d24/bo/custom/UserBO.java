@@ -16,5 +16,6 @@ public interface  UserBO extends SuperBO {
     public boolean deleteUser(String id);
 
     ArrayList<UserDTO> getAllUser();
+    public String genarateUserId();
 
 }

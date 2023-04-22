@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -23,9 +24,26 @@
          <font>
             <Font size="24.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtPWord" layoutX="528.0" layoutY="732.0" prefHeight="38.0" prefWidth="239.0">
+      <JFXTextField fx:id="txtPWord" layoutX="523.0" layoutY="734.0" prefHeight="38.0" prefWidth="239.0">
          <font>
             <Font size="24.0" />
-         </font></JFXTextField>
+         </font>
+      </JFXTextField>
+      <ImageView fx:id="imgShowPassword" fitHeight="17.0" fitWidth="26.0" layoutX="741.0" layoutY="751.0" onMouseClicked="#hidePasswordOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/showEye.png" />
+         </image>
+      </ImageView>
+      <JFXPasswordField fx:id="txtHidePassword" layoutX="523.0" layoutY="741.0" prefHeight="44.0" prefWidth="239.0" />
+      <ImageView fx:id="imgHidePassword" fitHeight="17.0" fitWidth="26.0" layoutX="741.0" layoutY="751.0" onMouseClicked="#showPasswordOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/hideEye.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="450.0" layoutY="924.0" onAction="#onActionBtnCreateNewUser" prefHeight="44.0" prefWidth="153.0" text="Create New Account">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

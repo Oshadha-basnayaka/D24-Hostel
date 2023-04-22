@@ -13,4 +13,6 @@ public interface StudentBO extends SuperBO {
 
     ArrayList<StudentDTO> getAllStudent();
 
+    public String genarateStudentId();
+
 }

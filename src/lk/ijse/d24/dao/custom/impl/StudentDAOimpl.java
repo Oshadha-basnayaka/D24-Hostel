@@ -6,6 +6,7 @@ import lk.ijse.d24.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.engine.spi.SessionDelegatorBaseImpl;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -15,9 +16,10 @@ public class StudentDAOimpl implements StudentDAO {
         Session session = SessionFactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Student student = session.get(Student.class,id);
+        Student student = session.get(Student.class, id);
 
-        transaction.commit();;
+        transaction.commit();
+        ;
         session.close();
         return student;
     }
@@ -31,7 +33,8 @@ public class StudentDAOimpl implements StudentDAO {
 
         session.save(entity);
 
-        transaction.commit();;
+        transaction.commit();
+        ;
         session.close();
         return true;
     }
@@ -44,7 +47,8 @@ public class StudentDAOimpl implements StudentDAO {
 
         session.update(entity);
 
-        transaction.commit();;
+        transaction.commit();
+        ;
         session.close();
 
         return true;
@@ -56,11 +60,12 @@ public class StudentDAOimpl implements StudentDAO {
         Session session = SessionFactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-       Student entity = session.load(Student.class,id);
+        Student entity = session.load(Student.class, id);
 
-       session.delete(entity);
+        session.delete(entity);
 
-        transaction.commit();;
+        transaction.commit();
+        ;
         session.close();
 
         return true;
@@ -78,5 +83,36 @@ public class StudentDAOimpl implements StudentDAO {
         session.close();
 
         return list;
+    }
+
+    @Override
+    public String generateNewId() {
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT id FROM Student ORDER BY id DESC ");
+
+        String newId = "S00 - 001";
+
+        if (query.list().size() == 0) {
+            return newId;
+        } else {
+            String genarateId = (String) query.list().get(0);
+
+            String[] split = genarateId.split("S00 - 00");
+
+            for (String i : split) {
+                genarateId = i;
+            }
+
+            int genNumber = Integer.valueOf(genarateId);
+
+            genarateId = "S00 - 00" + (genNumber + 1);
+
+            transaction.commit();
+            session.close();
+
+            return genarateId;
+        }
     }
 }

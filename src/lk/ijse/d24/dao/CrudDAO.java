@@ -9,4 +9,6 @@ public interface CrudDAO<T> extends SuperDAO{
     public  boolean delete (String id);
     public List<T> getAll();
 
+    public String generateNewId();
+
 }

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,25 +15,30 @@
             <Image url="@assets/dashboad.jpg" />
          </image>
       </ImageView>
-      <JFXButton layoutX="552.0" layoutY="898.0" onAction="#onActionBtnReservation" prefHeight="61.0" prefWidth="226.0">
+      <JFXButton layoutX="599.0" layoutY="686.0" onAction="#onActionBtnReservation" prefHeight="61.0" prefWidth="226.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="814.0" layoutY="892.0" onAction="#onActionBtnStudent" prefHeight="61.0" prefWidth="226.0">
+      <JFXButton layoutX="863.0" layoutY="681.0" onAction="#onActionBtnStudent" prefHeight="61.0" prefWidth="226.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1074.0" layoutY="892.0" onAction="#onActionBtnRoom" prefHeight="61.0" prefWidth="201.0">
+      <JFXButton layoutX="1120.0" layoutY="683.0" onAction="#onActionBtnRoom" prefHeight="61.0" prefWidth="201.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1306.0" layoutY="894.0" onAction="#onActionBtnUser" prefHeight="61.0" prefWidth="201.0">
-         <font>
-            <Font size="1.0" />
-         </font>
-      </JFXButton>
+      <TableView fx:id="tblKeyMoney" layoutX="753.0" layoutY="826.0" prefHeight="107.0" prefWidth="475.0">
+         <columns>
+            <TableColumn fx:id="colId" text="ID" />
+            <TableColumn fx:id="colName" text="NAME" />
+            <TableColumn fx:id="colContact" text="CONTACT" />
+            <TableColumn fx:id="colAddress" text="ADDRESS" />
+            <TableColumn fx:id="colBob" text="DOB" />
+            <TableColumn fx:id="colGender" text="GENDER" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

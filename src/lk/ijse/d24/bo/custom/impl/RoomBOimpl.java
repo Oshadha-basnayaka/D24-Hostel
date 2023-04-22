@@ -66,4 +66,11 @@ public class RoomBOimpl implements RoomBO {
         }).collect(Collectors.toList()));
         return roomDTOArrayList;
     }
+
+    @Override
+    public String genarateRoomId() {
+        return roomDAO.generateNewId();
+    }
+
+
 }

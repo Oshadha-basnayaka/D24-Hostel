@@ -1,8 +1,11 @@
 package lk.ijse.d24.controller;
 
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.d24.bo.BoFactory;
 import lk.ijse.d24.bo.BoType;
@@ -18,6 +21,9 @@ public class   MainLoginFormController {
     public JFXTextField txtUserName;
     public JFXTextField txtPWord;
     public AnchorPane pane;
+    public ImageView imgHidePassword;
+    public JFXPasswordField txtHidePassword;
+    public ImageView imgShowPassword;
 
     UserBO userBO = (UserBO) BoFactory.getInstance().getBO(BoType.USER);
 
@@ -27,11 +33,13 @@ public class   MainLoginFormController {
 
 
     private void login() throws IOException {
+
         UserDTO userDTO = userBO.getUser(txtUserName.getText());
 
         try {
 
-            if (txtUserName.getText().equals(userDTO.getName()) && txtPWord.getText().equals(userDTO.getPassword())) {
+
+            if ( (txtUserName.getText().equals(userDTO.getName()) && txtPWord.getText().equals(userDTO.getPassword()))   ||  (txtUserName.getText().equals(userDTO.getName()) && txtHidePassword.getText().equals(userDTO.getPassword()))     ) {
 
                 System.out.println("done");
 
@@ -77,5 +85,26 @@ public class   MainLoginFormController {
         alert.showAndWait(); // line 5
 //        alert.initModality(Modality.APPLICATION_MODAL);
 
+    }
+
+    public void showPasswordOnAction(MouseEvent mouseEvent) {
+        txtPWord.setText(txtHidePassword.getText());
+        txtHidePassword.setVisible(false);
+        imgHidePassword.setVisible(false);
+        txtPWord.setVisible(true);
+        imgShowPassword.setVisible(true);
+    }
+
+    public void hidePasswordOnAction(MouseEvent mouseEvent) {
+        txtHidePassword.setText(txtPWord.getText());
+        txtHidePassword.setVisible(true);
+        imgHidePassword.setVisible(true);
+        txtPWord.setVisible(false);
+        imgShowPassword.setVisible(false);
+    }
+
+    public void onActionBtnCreateNewUser(ActionEvent actionEvent) throws IOException {
+
+        Navigation.navigate(Routes.USER, pane);
     }
 }

@@ -16,22 +16,17 @@
             <Image url="@assets/reservation.jpg" />
          </image>
       </ImageView>
-      <JFXButton layoutX="775.0" layoutY="36.0" onAction="#onActionBtnReservation" prefHeight="58.0" prefWidth="214.0">
+      <JFXButton layoutX="965.0" layoutY="41.0" onAction="#onActionBtnReservation" prefHeight="58.0" prefWidth="214.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1017.0" layoutY="42.0" onAction="#onActionBtnStudent" prefHeight="69.0" prefWidth="195.0" text="Button">
+      <JFXButton layoutX="1221.0" layoutY="34.0" onAction="#onActionBtnStudent" prefHeight="69.0" prefWidth="195.0" text="Button">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1299.0" layoutY="38.0" onAction="#onActionBtnRoom" prefHeight="69.0" prefWidth="177.0" text="But">
-         <font>
-            <Font size="1.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="1526.0" layoutY="31.0" onAction="#onActionBtnUser" prefHeight="69.0" prefWidth="147.0" text="Butt">
+      <JFXButton layoutX="1492.0" layoutY="31.0" onAction="#onActionBtnRoom" prefHeight="69.0" prefWidth="177.0" text="But">
          <font>
             <Font size="1.0" />
          </font>

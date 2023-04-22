@@ -16,27 +16,22 @@
             <Image url="@assets/student.jpg" />
          </image>
       </ImageView>
-      <JFXButton layoutX="766.0" layoutY="27.0" onAction="#onActionBtnReservation" prefHeight="69.0" prefWidth="214.0">
+      <JFXButton layoutX="965.0" layoutY="27.0" onAction="#onActionBtnReservation" prefHeight="69.0" prefWidth="214.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1023.0" layoutY="32.0" onAction="#onActionBtnStudent" prefHeight="69.0" prefWidth="202.0">
+      <JFXButton layoutX="1220.0" layoutY="32.0" onAction="#onActionBtnStudent" prefHeight="69.0" prefWidth="202.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1295.0" layoutY="36.0" onAction="#onActionBtnRoom" prefHeight="69.0" prefWidth="198.0">
+      <JFXButton layoutX="1481.0" layoutY="36.0" onAction="#onActionBtnRoom" prefHeight="69.0" prefWidth="198.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1535.0" layoutY="33.0" onAction="#onActionBtnUser" prefHeight="69.0" prefWidth="134.0">
-         <font>
-            <Font size="1.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="1709.0" layoutY="28.0" onAction="#onActionBtnSignOut" prefHeight="69.0" prefWidth="181.0" text="Butt">
+      <JFXButton layoutX="1712.0" layoutY="28.0" onAction="#onActionBtnSignOut" prefHeight="69.0" prefWidth="181.0" text="Butt">
          <font>
             <Font size="1.0" />
          </font>

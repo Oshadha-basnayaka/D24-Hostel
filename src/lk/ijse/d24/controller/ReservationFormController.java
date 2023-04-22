@@ -40,6 +40,8 @@ public class ReservationFormController {
     public TableColumn colresDate;
 
     public void initialize() {
+     generateNewId();
+
         colResid.setCellValueFactory(new PropertyValueFactory<>("id"));
         colresDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colresSatus.setCellValueFactory(new PropertyValueFactory<>("status"));
@@ -186,5 +188,14 @@ public class ReservationFormController {
 
                     );
                 }).collect(Collectors.toList())));
+    }
+
+    private void generateNewId() {
+        try {
+            String generateNewId = reservationBO.genarateReservationId();
+            txtReservationId.setText(generateNewId);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

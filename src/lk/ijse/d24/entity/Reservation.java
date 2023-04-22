@@ -18,7 +18,6 @@ public class Reservation {
     private String id;
     @Column(name = "res_date", length = 50)
     private Date date;
-    @Column(name = "res_status", length = 50)
     private String status;
 //    private String reservationStudentId;
 //    @Column(name = "res_room_id", length = 50)

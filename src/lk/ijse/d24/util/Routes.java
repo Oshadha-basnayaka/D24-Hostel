@@ -2,5 +2,5 @@ package lk.ijse.d24.util;
 
 public enum Routes {
 
-    LOGIN , DASHBOAD , STUDENT , ROOM ,RESERVATION ,USER
+    LOGIN , DASHBOAD , STUDENT , ROOM ,RESERVATION ,USER ,
 }

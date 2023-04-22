@@ -14,27 +14,12 @@
             <Image url="@assets/user.jpg" />
          </image>
       </ImageView>
-      <JFXButton layoutX="770.0" layoutY="28.0" onAction="#onActionBtnReservation" prefHeight="61.0" prefWidth="205.0">
-         <font>
-            <Font size="1.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="1034.0" layoutY="52.0" onAction="#onActionBtnStudent" prefHeight="61.0" prefWidth="178.0">
-         <font>
-            <Font size="1.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="1297.0" layoutY="44.0" onAction="#onActionBtnRoom" prefHeight="61.0" prefWidth="180.0" text="Button">
-         <font>
-            <Font size="1.0" />
-         </font>
-      </JFXButton>
       <JFXButton layoutX="1528.0" layoutY="43.0" onAction="#onActionBtnUser" prefHeight="61.0" prefWidth="145.0">
          <font>
             <Font size="1.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1709.0" layoutY="22.0" onAction="#onActionBtnSignOut" prefHeight="69.0" prefWidth="185.0" text="Butt">
+      <JFXButton layoutX="1710.0" layoutY="36.0" onAction="#onActionBtnSignOut" prefHeight="69.0" prefWidth="185.0" text="Butt">
          <font>
             <Font size="1.0" />
          </font>

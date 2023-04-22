@@ -22,6 +22,10 @@ public class UserFormContoller {
     public TextField txtUserDOB;
     public TextField txtUserPassword;
 
+    public void initialize() {
+        genarateUserId();
+    }
+
     UserBO userBO = (UserBO) BoFactory.getInstance().getBO(BoType.USER);
 
     public void onActionBtnReservation(ActionEvent actionEvent) throws IOException {
@@ -100,5 +104,14 @@ public class UserFormContoller {
     }
 
     public void onActionBtnUserDelete(ActionEvent actionEvent) {
+    }
+
+    private void genarateUserId() {
+        try {
+            String genarateUserId = userBO.genarateUserId();
+            txtUserName.setText(genarateUserId);
+        }catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
