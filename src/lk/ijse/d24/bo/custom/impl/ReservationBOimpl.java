@@ -39,13 +39,20 @@ public class ReservationBOimpl implements ReservationBO {
         Student student = studentDAO.search(reservationDTO.getStudentId());
         Room room = roomDAO.search(reservationDTO.getRoomId());
 
-        return reservationDAO.add(new Reservation(
-                reservationDTO.getId(),
-                reservationDTO.getDate(),
-                reservationDTO.getStatus(),
-                room,
-                student
+        reservationDAO.add(new Reservation(
+            reservationDTO.getId(),
+            reservationDTO.getDate(),
+            reservationDTO.getStatus(),
+            room,
+            student
         ));
+
+        int roomQTY = roomDAO.getRoomQTY(reservationDTO.getRoomId());
+        room.setQty(roomQTY - 1);
+
+        roomDAO.update(room);
+
+        return true;
     }
 
     @Override
@@ -66,7 +73,18 @@ public class ReservationBOimpl implements ReservationBO {
 
     @Override
     public boolean deleteReservation(String id) {
-      return  reservationDAO.delete(id);
+        ReservationDTO reservationDTO = new ReservationDTO();
+        Student student = studentDAO.search(reservationDTO.getStudentId());
+        Room room = roomDAO.search(reservationDTO.getRoomId());
+
+        reservationDAO.delete(id);
+
+        int roomQTY = roomDAO.getRoomQTY(reservationDTO.getRoomId());
+        room.setQty(roomQTY + 1);
+
+        roomDAO.update(room);
+
+        return true;
     }
 
 
