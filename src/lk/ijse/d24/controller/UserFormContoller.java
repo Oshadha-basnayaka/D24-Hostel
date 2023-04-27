@@ -10,6 +10,7 @@ import lk.ijse.d24.bo.custom.UserBO;
 import lk.ijse.d24.dto.UserDTO;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
+import lk.ijse.d24.util.Validation;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -21,10 +22,7 @@ public class UserFormContoller {
     public TextField txtUserAddress;
     public TextField txtUserDOB;
     public TextField txtUserPassword;
-
-    public void initialize() {
-        genarateUserId();
-    }
+    
 
     UserBO userBO = (UserBO) BoFactory.getInstance().getBO(BoType.USER);
 
@@ -56,6 +54,7 @@ public class UserFormContoller {
         String userEmail = txtUserEmail.getText();
         String userAddress = txtUserAddress.getText();
         Date userDOB = Date.valueOf(txtUserDOB.getText());
+
 
         try {
             boolean isAdded = userBO.addUser(
@@ -106,12 +105,5 @@ public class UserFormContoller {
     public void onActionBtnUserDelete(ActionEvent actionEvent) {
     }
 
-    private void genarateUserId() {
-        try {
-            String genarateUserId = userBO.genarateUserId();
-            txtUserName.setText(genarateUserId);
-        }catch (Exception e) {
-            System.out.println(e);
-        }
-    }
+
 }
