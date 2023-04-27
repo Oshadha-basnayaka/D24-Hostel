@@ -9,12 +9,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import lk.ijse.d24.bo.BoFactory;
 import lk.ijse.d24.bo.BoType;
 import lk.ijse.d24.bo.custom.StudentBO;
 import lk.ijse.d24.dto.StudentDTO;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
+import lk.ijse.d24.util.Validation;
 import lk.ijse.d24.view.TM.StudentTM;
 
 import java.io.IOException;
@@ -37,10 +39,24 @@ public class StudentFormController {
     public TableColumn colAddress;
     public TableColumn colBob;
     public TableColumn colGender;
-
+    public Text InvalidStudentId;
+    public Text InvalidStudentAddress;
+    public Text InvalidStudentGender;
+    public Text InvalidContacNo;
+    public Text InvalidStudentName;
+    public Text InvalidStudentdob;
 
 
     public void initialize() {
+
+
+
+        InvalidStudentId.setVisible(false);
+        InvalidStudentGender.setVisible(false);
+        InvalidContacNo.setVisible(false);
+        InvalidStudentName.setVisible(false);
+        InvalidStudentdob.setVisible(false);
+        InvalidStudentAddress.setVisible(false);
 
         generateNewId();
 
@@ -91,6 +107,7 @@ public class StudentFormController {
 
     public void onActionBtnStudentAdd(ActionEvent actionEvent) {
 
+
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
         String address = txtStudentAddress.getText();
@@ -109,6 +126,43 @@ public class StudentFormController {
         }
 
 
+//            if(Validation.validateLettersOnly(txtStudentName.getText())){
+//
+//                    if (Validation.validateDateOnly(txtStudentDob.getText())){
+//
+//                        if (Validation.validateLettersOnly(txtStudentGender.getText())){
+//
+//                            if (Validation.validateNumbersOnly(txtStudentContact.getText())){
+//
+//
+//                                String id = txtStudentId.getText();
+//                                String name = txtStudentName.getText();
+//                                String address = txtStudentAddress.getText();
+//                                Date date = Date.valueOf(txtStudentDob.getText());
+//                                String gender = txtStudentGender.getText();
+//                                int contact = Integer.parseInt(txtStudentContact.getText());
+//
+//                                try {
+//                                    boolean isAdded = studentBO.addStudent(new StudentDTO(id, name, contact, address, date, gender));
+//                                    if (isAdded) {
+//                                        loadstudent(studentBO.getAllStudent());
+//                                        new Alert(Alert.AlertType.CONFIRMATION, "user Added!").show();
+//                                    }
+//                                } catch (Exception e) {
+//                                    System.out.println(e);
+//                                }
+//                            } else {
+//                                InvalidContacNo.setVisible(true);
+//                            }
+//                        } else {
+//                            InvalidStudentGender.setVisible(true);
+//                        }
+//                    } else {
+//                        InvalidStudentdob.setVisible(true);
+//                    }
+//            } else {
+//                InvalidStudentName.setVisible(true);
+//            }
     }
 
     public void onActionBtnStudentSearch(ActionEvent actionEvent) {
