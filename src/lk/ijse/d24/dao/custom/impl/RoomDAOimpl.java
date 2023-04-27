@@ -108,4 +108,18 @@ public class RoomDAOimpl implements RoomDAO {
             return genarateId;
         }
     }
+
+    @Override
+    public int getRoomQTY(String id) {
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+       Query query = session.createQuery("SELECT qty FROM Room WHERE id LIKE :id").setParameter("id",id);
+        int qty = (int) query.list().get(0);
+
+        transaction.commit();
+        session.close();
+
+        return qty;
+    }
 }
