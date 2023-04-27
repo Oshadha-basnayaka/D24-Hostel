@@ -65,34 +65,34 @@ public class UserDAOimpl implements UserDAO {
 
     @Override
     public String generateNewId() {
-
-        Session session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        Query query = session.createQuery("SELECT name FROM User ORDER BY name DESC ");
-
-        String newId = "U00-001";
-
-        if (query.list().size() == 0) {
-            return newId;
-        }else {
-            String genarateId = (String) query.list().get(0);
-
-            String[] split = genarateId.split("U00-00");
-
-            for (String i:split) {
-                genarateId = i;
-            }
-
-            int genNumber = Integer.valueOf(genarateId);
-
-            genarateId = "U00-00" + (genNumber + 1);
-
-            transaction.commit();
-            session.close();
+//
+//        Session session = SessionFactoryConfiguration.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//
+//        Query query = session.createQuery("SELECT name FROM User ORDER BY name DESC ");
+//
+//        String newId = "U00-001";
+//
+//        if (query.list().size() == 0) {
+//            return newId;
+//        }else {
+//            String genarateId = (String) query.list().get(0);
+//
+//            String[] split = genarateId.split("U00-00");
+//
+//            for (String i:split) {
+//                genarateId = i;
+//            }
+//
+//            int genNumber = Integer.valueOf(genarateId);
+//
+//            genarateId = "U00-00" + (genNumber + 1);
+//
+//            transaction.commit();
+//            session.close();
 
             return null;
-        }
+
 
         }
     }
