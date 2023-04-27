@@ -14,6 +14,7 @@ import lk.ijse.d24.bo.custom.UserBO;
 import lk.ijse.d24.dto.UserDTO;
 import lk.ijse.d24.util.Navigation;
 import lk.ijse.d24.util.Routes;
+import lk.ijse.d24.util.Validation;
 
 import java.io.IOException;
 
@@ -34,10 +35,9 @@ public class   MainLoginFormController {
 
     private void login() throws IOException {
 
-        UserDTO userDTO = userBO.getUser(txtUserName.getText());
-
         try {
 
+            UserDTO userDTO = userBO.getUser(txtUserName.getText());
 
             if ( (txtUserName.getText().equals(userDTO.getName()) && txtPWord.getText().equals(userDTO.getPassword()))   ||  (txtUserName.getText().equals(userDTO.getName()) && txtHidePassword.getText().equals(userDTO.getPassword()))     ) {
 
@@ -49,8 +49,8 @@ public class   MainLoginFormController {
                 new Alert(Alert.AlertType.WARNING, "wrong password or user name!").show();
             }
 
-        } catch (IOException e) {
-            System.out.println(e);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.WARNING, "wrong password or user name!").show();
         }
 
 //
