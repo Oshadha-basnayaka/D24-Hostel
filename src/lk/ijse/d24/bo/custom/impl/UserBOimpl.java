@@ -64,9 +64,6 @@ public class UserBOimpl implements UserBO {
         return userList;
     }
 
-    @Override
-    public String genarateUserId() {
-        return userDAO.generateNewId();
-    }
+
 
 }
