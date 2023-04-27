@@ -34,6 +34,8 @@ public class ReservationDAOimpl implements ReservationDAO {
 
         session.save(entity);
 
+
+
         transaction.commit();
         session.close();
         return true;
@@ -119,7 +121,7 @@ public class ReservationDAOimpl implements ReservationDAO {
         Session session = SessionFactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        List<Student> notPaylist = session.createQuery("SELECT student FROM ReservationWHERE status LIKE : ID").setParameter("ID", "NOT PAID").list();
+        List<Student> notPaylist = session.createQuery("SELECT student FROM Reservation WHERE status LIKE : ID").setParameter("ID", "notpaid").list();
 
         transaction.commit();
         session.close();
